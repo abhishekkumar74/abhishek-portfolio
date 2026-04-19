@@ -14,7 +14,7 @@ export const personal = {
     "I enjoy every step of the development process — from planning and design to coding and optimization. Whether it's frontend finesse or backend logic, I aim to deliver high-quality solutions that solve real-world problems.",
   ],
   resumeUrl: 'https://drive.google.com/file/d/11oHStcOgh3DjjZYY9oDK2v_obsTlaEcZ/view?usp=sharing',
-  instagramFollowers: '50K+',
+  instagramFollowers: '51K+',
 
   // Stats shown as floating badges on About section image
   stats: {
