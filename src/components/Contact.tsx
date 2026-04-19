@@ -17,14 +17,23 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const GOOGLE_SHEETS_URL = import.meta.env.VITE_GOOGLE_SHEETS_URL;
+  const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwts31Es1d5HHzchXzBbpNmuSbW74D7627_5S6eZexKVzCMiNpPoaZVmnocnasQBLo/exec';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
-    const payload = new FormData();
+    // Guard: if URL is not configured, show error immediately
+    if (!GOOGLE_SHEETS_URL) {
+      console.error('VITE_GOOGLE_SHEETS_URL is not set in .env');
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus('idle'), 4000);
+      return;
+    }
+
+    const payload = new URLSearchParams();
     payload.append('timestamp', new Date().toISOString());
     payload.append('name', formData.name);
     payload.append('email', formData.email);
@@ -36,8 +45,10 @@ const Contact: React.FC = () => {
       await fetch(GOOGLE_SHEETS_URL, {
         method: 'POST',
         mode: 'no-cors',
-        body: payload,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: payload.toString(),
       });
+      // no-cors always resolves (opaque response) — treat reaching here as success
       setSubmitStatus('success');
       setFormData({ name: '', email: '', number: '', subject: '', message: '' });
     } catch (err) {
