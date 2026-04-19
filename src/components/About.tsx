@@ -34,7 +34,7 @@ const About: React.FC = () => {
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center mb-16 sm:mb-20">
             <p className="text-orange-500 text-base sm:text-lg font-medium mb-4">About Me</p>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               Full Stack Developer | 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">React • Node • Java</span>
             </h2>
