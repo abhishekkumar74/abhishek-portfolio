@@ -25,7 +25,7 @@ const Portfolio: React.FC = () => {
     { label: "Projects Completed", value: projects.length, icon: Code, color: "from-blue-500 to-cyan-500" },
     { label: "Years Experience", value: "2+", icon: Calendar, color: "from-green-500 to-emerald-500" },
     { label: "Technologies Used", value: "15+", icon: Star, color: "from-purple-500 to-pink-500" },
-    { label: "Happy Clients", value: "10+", icon: Users, color: "from-orange-500 to-red-500" }
+    { label: "Certifications", value: "9+", icon: Users, color: "from-orange-500 to-red-500" }
   ], []);
 
   return (
