@@ -14,7 +14,7 @@ export const personal = {
     "With hands-on experience in full-stack development, I work on creating responsive interfaces and robust backend systems, always aiming to solve real-world problems and continuously improve my skills.",
   ],
   resumeUrl: 'https://drive.google.com/file/d/11oHStcOgh3DjjZYY9oDK2v_obsTlaEcZ/view?usp=sharing',
-  instagramFollowers: '50K+',
+  instagramFollowers: '51K+',
 
   // Stats shown as floating badges on About section image
   stats: {
