@@ -12,16 +12,16 @@ export const skillsData = {
     skills: [
       { name: 'Java',       percentage: 95, level: 'Advanced',     description: 'Strong object-oriented programming skills with experience in Spring Boot and enterprise applications.' },
       { name: 'JavaScript', percentage: 90, level: 'Advanced',     description: 'Proficient in ES6+, DOM manipulation, and modern JavaScript frameworks.' },
-      { name: 'HTML/CSS',   percentage: 85, level: 'Advanced',     description: 'Expert in semantic HTML, responsive design, and modern CSS techniques.' },
+      { name: 'HTML/CSS',   percentage: 90, level: 'Advanced',     description: 'Expert in semantic HTML, responsive design, and modern CSS techniques.' },
       { name: 'Node.js',    percentage: 80, level: 'Intermediate', description: 'Experience in building server-side applications and RESTful APIs.' },
-      { name: 'SQL',        percentage: 75, level: 'Intermediate', description: 'Database design, complex queries, and data manipulation skills.' },
+      { name: 'SQL',        percentage: 90, level: 'Intermediate', description: 'Database design, complex queries, and data manipulation skills.' },
     ],
     // Tag pills shown at the bottom of the modal
     additional: ['TypeScript', 'Python', 'C++', 'PHP'],
   },
 
   tools: {
-    title: 'Developer Tools',
+    title: 'Tools & Technologies',
     icon: '🛠️',
     color: 'from-blue-500 to-purple-500',
     skills: [
