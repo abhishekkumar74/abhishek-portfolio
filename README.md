@@ -42,7 +42,7 @@ To start the local development server, run the following command:
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) (or the address shown in your terminal) in your browser to see the result. The app will automatically reload if you change any of the source files.
+Open https://abhishek-portfolio-livid-zeta.vercel.app (or the address shown in your terminal) in your browser to see the result. The app will automatically reload if you change any of the source files.
 
 ### Building for Production
 
