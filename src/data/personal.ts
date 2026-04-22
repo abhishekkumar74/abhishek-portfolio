@@ -19,7 +19,7 @@ export const personal = {
   // Stats shown as floating badges on About section image
   stats: {
     experience: '3+',       // Years of experience
-    projects: '10+',        // Projects completed
+    projects: '9+',        // Projects completed
   },
 
   // Typing animation titles on Hero section
