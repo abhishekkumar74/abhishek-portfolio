@@ -38,7 +38,7 @@ export const certificates: Certificate[] = [
   {
     id: 4,
     title: 'MongoDB Essential Training',
-    issuer: 'LinkedIn Learning',
+    issuer: 'LinkedIn Course',
     color: 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400',
     badge: 'bg-emerald-100 text-emerald-600',
   },
