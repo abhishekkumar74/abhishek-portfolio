@@ -3,7 +3,7 @@
 
 A sleek, modern, and fully responsive personal portfolio website built with React, Vite, and Tailwind CSS. This project showcases skills, experience, projects, and insights through a clean, animated, and interactive user interface.
 
-**[Live Demo](https://abhishek-portfolio-livid-zeta.vercel.app) (replace with your link)**
+**[Live Demo](https://abhishek-portfolio-livid-zeta.vercel.app) **
 
 ---
 
