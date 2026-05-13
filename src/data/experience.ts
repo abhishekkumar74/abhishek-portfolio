@@ -22,14 +22,14 @@ export const workExperience: ExperienceItem[] = [
     description: 'Built Unniverse — a MERN stack platform for college students to connect, share notes, build resumes, and share interview experiences. Gained hands-on understanding of how frontend and backend work together in a real-world application.',
     type: 'work',
   },
-  {
-    id: 2,
-    title: 'Personal Portfolio',
-    company: 'Self Project',
-    period: '2026 - Present',
-    description: 'Designed and developed this portfolio from scratch using React, TypeScript, Tailwind CSS, and Framer Motion. Includes dark mode, scroll animations, Google Sheets contact form, and fully responsive layout. Replace this entry once a new project is ready.',
-    type: 'work',
-  },
+  // {
+  //   id: 2,
+  //   title: 'Personal Portfolio',
+  //   company: 'Self Project',
+  //   period: '2026 - Present',
+  //   description: 'Designed and developed this portfolio from scratch using React, TypeScript, Tailwind CSS, and Framer Motion. Includes dark mode, scroll animations, Google Sheets contact form, and fully responsive layout. Replace this entry once a new project is ready.',
+  //   type: 'work',
+  // },
 {
   id: 3,
   title: 'AI + Full Stack Developer (Agriculture Project)',
