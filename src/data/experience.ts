@@ -30,6 +30,23 @@ export const workExperience: ExperienceItem[] = [
     description: 'Designed and developed this portfolio from scratch using React, TypeScript, Tailwind CSS, and Framer Motion. Includes dark mode, scroll animations, Google Sheets contact form, and fully responsive layout. Replace this entry once a new project is ready.',
     type: 'work',
   },
+{
+  id: 3,
+  title: 'AI + Full Stack Developer (Agriculture Project)',
+  company: 'KrishiMitra AI',
+  period: 'April 2026 - Present',
+  description: 'Developed an AI-powered agriculture platform for farmers and dealers with crop management, fertilizer inventory, token booking, weather alerts, government schemes, and real-time notifications using React, TypeScript, Supabase, and PostgreSQL.',
+  type: 'work',
+},
+{
+  id: 4,
+  title: 'Full Stack Developer (Healthcare Project)',
+  company: 'MedQueue - Smart Hospital Queue Management',
+  period: 'Feb. 2026 - Present',
+  description: 'Built a real-time hospital queue management system with token tracking, patient management, doctor prescriptions, notifications, and role-based dashboards for admins, doctors, and ward staff using React, TypeScript, Supabase, and PostgreSQL.',
+  type: 'work',
+},
+  
 ];
 
 // ── Education ────────────────────────────────────────────────
