@@ -38,7 +38,7 @@ export const projects: Project[] = [
     id: 2,
     title: 'MedQueue - Smart Hospital Queue Management System',
     category: 'Full Stack',
-    image: 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: 'https://i.pinimg.com/736x/b2/3d/42/b23d421931a9d43b05703bf1f4840111.jpg',
     description: 'Real-time hospital queue management system with token tracking, patient management, and role-based dashboards.',
     technologies: [
     'React',
@@ -61,7 +61,7 @@ export const projects: Project[] = [
     id: 3,
     title: 'KrishiMitra AI - Smart Agriculture Management Platform',
     category: 'Full Stack',
-    image: 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=600',
+    image: 'https://i.pinimg.com/1200x/8a/64/1e/8a641e68121de8e2f4b6da31bb4e3aca.jpg',
     description: 'AI-powered agriculture platform for crop management, fertilizer distribution, farmer support, and smart notifications.',
     technologies: [
     'React',
