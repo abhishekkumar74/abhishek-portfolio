@@ -86,7 +86,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, setDarkMode }) => {
 
             {/* Download CV */}
             <motion.a
-              href={RESUME_URL}
+              href={https://drive.google.com/file/d/1NHIpewuhQOvDmGkF9XmOCNQaUV9Vyvb1/view?usp=sharing}
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-4 xl:px-5 py-2 rounded-full font-medium transition-all duration-300 text-sm flex items-center gap-2"
