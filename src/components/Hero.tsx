@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Facebook, Twitter, Linkedin, Instagram, Github } from 'lucide-react';
+import { Twitter, Linkedin, Instagram, Github, ArrowRight, Sparkles, MapPin } from 'lucide-react';
 import { personal } from '../data/personal';
 
 const Hero: React.FC = () => {
@@ -14,210 +14,261 @@ const Hero: React.FC = () => {
     if (displayText.length < currentTitle.length) {
       timeout = setTimeout(() => {
         setDisplayText(currentTitle.slice(0, displayText.length + 1));
-      }, 100);
+      }, 90);
     } else {
       timeout = setTimeout(() => {
         setDisplayText('');
         setCurrentIndex((prev) => (prev + 1) % titles.length);
-      }, 2000);
+      }, 2200);
     }
     return () => clearTimeout(timeout);
-  }, [displayText, currentTitle, currentIndex]);
+  }, [displayText, currentTitle, currentIndex, titles.length]);
 
   const scrollToAbout = () => {
-    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.querySelector('#about');
+    if (el) {
+      const offset = 85;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   };
 
-  const floatingVariants = {
-    animate: { y: [0, -20, 0], rotate: [0, 5, -5, 0], transition: { duration: 4, repeat: Infinity, ease: 'easeInOut' } }
+  const scrollToContact = () => {
+    const el = document.querySelector('#contact');
+    if (el) {
+      const offset = 85;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   };
-  const floatingVariants2 = {
-    animate: { y: [0, -15, 0], rotate: [0, -3, 3, 0], transition: { duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 } }
+
+  // Subtle levitation for floating badges
+  const floatVariant = {
+    animate: {
+      y: [-4, 4, -4],
+      transition: { duration: 5, repeat: Infinity, ease: 'easeInOut' }
+    }
   };
-  const floatingVariants3 = {
-    animate: { y: [0, -25, 0], rotate: [0, 8, -8, 0], transition: { duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 } }
+
+  const floatVariantReverse = {
+    animate: {
+      y: [4, -4, 4],
+      transition: { duration: 5.5, repeat: Infinity, ease: 'easeInOut' }
+    }
   };
-  const floatingVariants4 = {
-    animate: { y: [0, -25, 0], rotate: [0, 8, -8, 0], transition: { duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 } }
-  };
+
+  const techStack = [
+    'Java',
+    'React.js',
+    'Next.js',
+    'TypeScript',
+    'Node.js',
+    'React Native',
+    'MongoDB',
+    'Supabase',
+    'Tailwind CSS',
+    'PostgreSQL',
+  ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-purple-50 via-white to-cyan-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 pt-20">
-      {/* Gradient Background Elements */}
-      <div className="absolute top-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-br from-purple-200 to-pink-200 rounded-full opacity-30 blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-br from-cyan-200 to-blue-200 rounded-full opacity-30 blur-3xl"></div>
-      <div className="absolute top-1/2 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-br from-orange-200 to-red-200 rounded-full opacity-20 blur-2xl"></div>
+    <section id="home" className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-gradient-to-b from-orange-50/25 via-white to-gray-50/40 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 pt-24 sm:pt-32 pb-12 sm:pb-20">
+      {/* Soft Pristine Ambient Glows */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[650px] lg:w-[900px] h-[340px] sm:h-[450px] bg-gradient-to-tr from-orange-400/12 via-amber-300/10 to-transparent dark:from-orange-500/10 dark:via-purple-500/5 dark:to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 -left-20 w-72 h-72 bg-orange-300/10 dark:bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 -right-20 w-72 h-72 bg-amber-300/10 dark:bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Floating Icons */}
-      <motion.div
-        className="absolute top-1/4 right-4 sm:right-1/4 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg"
-        variants={floatingVariants} animate="animate"
-      >
-        <span className="text-white font-bold text-sm sm:text-xl">Ai</span>
-      </motion.div>
-      <motion.div
-        className="absolute top-1/3 right-8 sm:right-1/6 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg"
-        variants={floatingVariants2} animate="animate"
-      >
-        <span className="text-white font-bold text-sm sm:text-xl">Ps</span>
-      </motion.div>
-      <motion.div
-        className="absolute top-1/5 left-6 sm:left-1/2 w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-black rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg"
-        variants={floatingVariants4} animate="animate"
-      >
-        <span className="text-white font-bold text-sm sm:text-xl">Git</span>
-      </motion.div>
-      <motion.div
-        className="absolute bottom-1/3 right-6 sm:right-1/5 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg"
-        variants={floatingVariants3} animate="animate"
-      >
-        <div className="w-4 h-4 sm:w-6 sm:h-6 bg-white rounded-sm flex items-center justify-center">
-          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-br from-purple-500 to-pink-500 rounded-sm"></div>
-        </div>
-      </motion.div>
-      <motion.div
-        className="hidden sm:block absolute top-1/2 right-1/3 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full shadow-md"
-        animate={{ y: [0, -10, 0], x: [0, 5, 0], transition: { duration: 3, repeat: Infinity, ease: 'easeInOut', delay: 1.5 } }}
-      ></motion.div>
-      <motion.div
-        className="hidden sm:block absolute bottom-1/4 right-1/4 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full shadow-md"
-        animate={{ y: [0, -15, 0], x: [0, -8, 0], transition: { duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 2 } }}
-      ></motion.div>
+      {/* Aesthetic Dot Matrix Pattern Grid */}
+      <div
+        className="absolute inset-0 opacity-[0.25] dark:opacity-[0.14] pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
+          backgroundSize: '28px 28px',
+          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
+        }}
+      />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
+        <div className="grid md:grid-cols-12 gap-8 md:gap-8 lg:gap-12 items-center w-full max-w-full min-w-0">
+          
+          {/* Left Content Column */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}
-            className="text-center lg:text-left order-2 lg:order-1"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="md:col-span-7 text-center md:text-left order-2 md:order-1 w-full max-w-full min-w-0"
           >
-            <motion.p
-              className="text-orange-500 text-base sm:text-lg font-medium mb-2 sm:mb-4"
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            >
-              Hello, I'm
-            </motion.p>
-
-            <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight"
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-            >
-              {personal.name}
-            </motion.h1>
-
+            {/* Unified Status Pill: Available for Work + Location in one clean badge */}
             <motion.div
-              className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-2 min-h-[2rem] sm:min-h-[2.5rem]"
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1 }}
+              className="inline-flex items-center gap-2 sm:gap-2.5 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border border-orange-200/50 dark:border-gray-800 shadow-2xs mb-5 text-xs font-medium text-gray-700 dark:text-gray-300"
             >
-              A <span className="text-green-500 font-semibold">{displayText}</span>
-              <span className="animate-pulse">| From <span className="text-purple-500 font-semibold">{personal.location}</span></span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="font-semibold text-emerald-600 dark:text-emerald-400">Available for Work</span>
+              <span className="text-gray-300 dark:text-gray-700 font-light">•</span>
+              <span className="flex items-center gap-1 text-gray-500 dark:text-gray-400">
+                <MapPin size={11} className="text-orange-500 shrink-0" />
+                {personal.location}
+              </span>
             </motion.div>
 
-            <motion.p
-              className="text-gray-500 dark:text-gray-400 text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-lg mx-auto lg:mx-0"
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
-            >
-              {personal.bio}
-            </motion.p>
+            {/* Name Heading with Clean Aesthetic Typography */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-[1.14] mb-4">
+              Hello, I'm{' '}
+              <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 font-black">
+                {personal.name}
+              </span>
+            </h1>
 
-            <motion.div
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 mb-6 sm:mb-8"
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
-            >
+            {/* Dynamic Animated Subtitle Chip - Clean tech style without underline */}
+            <div className="flex items-center justify-center md:justify-start gap-2 mb-6 min-h-[2.2rem] flex-wrap">
+              <span className="text-sm sm:text-base font-medium text-gray-500 dark:text-gray-400">
+                Specialized in
+              </span>
+              <span className="inline-flex items-center text-xs sm:text-sm font-semibold font-mono px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 text-orange-600 dark:text-orange-400 border border-orange-200/70 dark:border-orange-800/50 shadow-2xs">
+                <span>{displayText}</span>
+                <span className="animate-pulse ml-0.5 text-orange-500 font-bold">|</span>
+              </span>
+            </div>
+
+            {/* Bio Paragraph */}
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl mx-auto md:mx-0 mb-8 font-normal">
+              {personal.bio}
+            </p>
+
+            {/* Call to Actions & Social Links */}
+            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 sm:gap-4 mb-8">
+              <motion.button
+                onClick={scrollToContact}
+                className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold px-7 py-3.5 rounded-full shadow-lg shadow-orange-500/25 hover:shadow-orange-500/35 transition-all text-sm sm:text-base flex items-center justify-center gap-2 cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span>Let's Connect</span>
+                <ArrowRight size={16} />
+              </motion.button>
+
               <motion.button
                 onClick={scrollToAbout}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all duration-300 w-full sm:w-auto"
-                whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto px-7 py-3.5 rounded-full border border-gray-200 dark:border-gray-800 hover:border-orange-500 text-gray-800 dark:text-gray-200 hover:text-orange-500 font-semibold transition-all text-sm sm:text-base bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-2xs cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 About Me
               </motion.button>
 
-              {/* Social Links */}
-              <div className="flex gap-3 sm:gap-4">
-                <motion.a href={personal.social.github} target="_blank" rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors p-2"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <Github size={18} className="sm:w-5 sm:h-5" />
-                </motion.a>
-                <motion.a href={personal.social.facebook} target="_blank" rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors p-2"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <Facebook size={18} className="sm:w-5 sm:h-5" />
-                </motion.a>
-                <motion.a href={personal.social.twitter} target="_blank" rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors p-2"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <Twitter size={18} className="sm:w-5 sm:h-5" />
-                </motion.a>
-                <motion.a href={personal.social.linkedin} target="_blank" rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors p-2"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <Linkedin size={18} className="sm:w-5 sm:h-5" />
-                </motion.a>
-                <motion.a href={personal.social.instagram} target="_blank" rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors p-2"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  <Instagram size={18} className="sm:w-5 sm:h-5" />
-                </motion.a>
+              {/* Social Icon Pills */}
+              <div className="flex items-center gap-2 pt-2 sm:pt-0 sm:ml-2">
+                {[
+                  { icon: Github, href: personal.social.github, label: 'GitHub' },
+                  { icon: Linkedin, href: personal.social.linkedin, label: 'LinkedIn' },
+                  { icon: Instagram, href: personal.social.instagram, label: 'Instagram' },
+                  { icon: Twitter, href: personal.social.twitter, label: 'Twitter' },
+                ].map(({ icon: Icon, href, label }) => (
+                  <motion.a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="p-2.5 rounded-full bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-950/30 transition-all border border-gray-200 dark:border-gray-700 shadow-2xs"
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Icon size={15} />
+                  </motion.a>
+                ))}
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
 
-          {/* Right Content - Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative flex justify-center order-1 lg:order-2"
-          >
-            <div className="relative">
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-200 to-purple-200 rounded-full opacity-20"></div>
-                <img src="/Hero.png" alt="Profile" className="relative w-full h-full object-cover rounded-full shadow-2xl border-2 sm:border-4 border-white dark:border-gray-700" />
+            {/* Sleek Tech Stack Infinite Moving Marquee */}
+            <div className="pt-2 flex items-center overflow-hidden w-full max-w-full min-w-0">
+              {/* Infinite Moving Marquee Track */}
+              <div className="relative overflow-hidden w-full min-w-0">
+                {/* Subtle edge fades for seamless appearance */}
+                <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white/90 dark:from-gray-950 to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white/90 dark:from-gray-950 to-transparent z-10 pointer-events-none" />
+
+                <div className="animate-marquee-ltr flex items-center gap-2">
+                  {[...techStack, ...techStack].map((tech, idx) => (
+                    <span
+                      key={`${tech}-${idx}`}
+                      className="px-3 py-1 rounded-full text-xs font-medium bg-white/90 dark:bg-gray-800/90 text-gray-700 dark:text-gray-300 border border-gray-200/80 dark:border-gray-700/80 hover:border-orange-500/50 hover:text-orange-500 transition-colors shadow-2xs whitespace-nowrap shrink-0"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-              {/* Instagram 50K badge */}
-              <motion.div
-                className="absolute -left-4 sm:-left-8 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 rounded-2xl px-3 py-2 shadow-xl flex items-center gap-2 border border-pink-100 dark:border-pink-900/40"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.9 }}
-              >
-                <div className="w-8 h-8 bg-gradient-to-br from-pink-500 via-purple-500 to-orange-400 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                </div>
-                <div>
-                  <div className="text-sm font-bold text-gray-900 dark:text-white leading-none">{personal.instagramFollowers}</div>
-                  <div className="text-xs text-gray-500 dark:text-gray-400">Followers</div>
-                </div>
-              </motion.div>
-              <motion.div
-                className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-pink-400 to-red-500 rounded-full"
-                animate={{ scale: [1, 1.2, 1], transition: { duration: 2, repeat: Infinity } }}
-              ></motion.div>
-              <motion.div
-                className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full opacity-80"
-                animate={{ rotate: [0, 360], transition: { duration: 8, repeat: Infinity, ease: 'linear' } }}
-              ></motion.div>
             </div>
           </motion.div>
+
+          {/* Right Column: Clean, Unobstructed Profile Photo with Balanced Floating Badges */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="md:col-span-5 flex justify-center order-1 md:order-2 w-full max-w-full min-w-0"
+          >
+            <div className="relative">
+              {/* Outer Radiant Glow */}
+              <div className="absolute -inset-4 bg-gradient-to-tr from-orange-400/20 via-amber-400/15 to-transparent rounded-full blur-2xl opacity-75 dark:opacity-40"></div>
+
+              {/* Elegant Outer Ring Frame */}
+              <div className="relative p-1.5 sm:p-2 rounded-full bg-gradient-to-b from-white via-orange-50/40 to-gray-100 dark:from-gray-800 dark:to-gray-900 shadow-[0_20px_50px_rgba(249,115,22,0.12)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-gray-200/60 dark:border-gray-800">
+                {/* Profile Image Container */}
+                <div className="w-44 h-44 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-76 lg:h-76 xl:w-84 xl:h-84 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  <img
+                    src="/Hero.png"
+                    alt={personal.name}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              </div>
+
+              {/* Instagram Badge at Bottom-Left Corner */}
+              <motion.div
+                className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-2xl px-3 py-1.5 sm:px-3.5 sm:py-2 shadow-lg shadow-black/5 border border-gray-100 dark:border-gray-800 flex items-center gap-2 sm:gap-2.5 z-20"
+                variants={floatVariant}
+                animate="animate"
+              >
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-xs">
+                  <Instagram size={14} className="sm:w-4 sm:h-4" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs sm:text-sm font-extrabold text-gray-900 dark:text-white leading-tight">
+                    {personal.instagramFollowers}
+                  </div>
+                  <div className="text-[10px] text-gray-400 font-medium leading-none">Followers</div>
+                </div>
+              </motion.div>
+
+              {/* Experience Companion Badge at Top-Right Corner */}
+              <motion.div
+                className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-2xl px-3 py-1.5 sm:px-3.5 sm:py-2 shadow-lg shadow-black/5 border border-gray-100 dark:border-gray-800 flex items-center gap-2 z-20"
+                variants={floatVariantReverse}
+                animate="animate"
+              >
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-tr from-orange-500 to-amber-500 rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-xs">
+                  <Sparkles size={14} className="sm:w-4 sm:h-4" />
+                </div>
+                <div className="text-left">
+                  <div className="text-xs sm:text-sm font-extrabold text-gray-900 dark:text-white leading-tight">
+                    {personal.stats.experience} Experience
+                  </div>
+                  <div className="text-[10px] text-gray-400 font-medium leading-none">Production Ready</div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.button
-        onClick={scrollToAbout}
-        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-gray-600 dark:text-gray-400 hover:text-orange-500 transition-colors"
-        animate={{ y: [0, -10, 0] }} transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
-          <div className="w-1 h-2 sm:h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-1 sm:mt-2 animate-bounce"></div>
-        </div>
-      </motion.button>
     </section>
   );
 };

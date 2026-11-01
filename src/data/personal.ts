@@ -4,16 +4,16 @@
 
 export const personal = {
   name: 'Abhishek Kumar',
-  location: 'Darbhanga, Bihar',
+  location: 'Gurugram, Haryana',
   currentCity: 'Sec-80, Gurugram, Haryana, India',
   email: 'abhishekkumar86448@gmail.com',
   phone: '+91 87****84***',        // shown masked in Contact section
-  bio: "I'm Abhishek Kumar, a Software Developer based in Darbhanga, Bihar. I'm passionate about building clean, scalable, and user-focused web applications.",
+  bio: "Full Stack & Mobile Engineer passionate about architecting high-performance digital products. Experienced in building production systems with Java, React Native, Next.js, and Supabase.",
   about: [
-    "I'm a passionate Software Developer focused on building clean, scalable, and user-friendly web applications. Skilled in Java, React.js, Node.js, and MongoDB, I enjoy turning ideas into efficient digital solutions.",
-    "With hands-on experience in full-stack development, I work on creating responsive interfaces and robust backend systems, always aiming to solve real-world problems and continuously improve my skills.",
+    "I'm a Full Stack & Mobile Application Developer dedicated to engineering clean, robust, and scalable digital solutions. With hands-on proficiency across Java, React Native, Next.js, and Supabase, I specialize in crafting products that blend intuitive interfaces with dependable backend architectures.",
+    "From engineering full-scale productivity ecosystems like LifeTrack Pro to real-time hospital queue systems like MedQueue, I focus on end-to-end execution, performance optimization, and clean code principles. I continuously push boundaries by adopting modern tooling and sharing practical insights with a community of 51K+ developers.",
   ],
-  resumeUrl: 'https://drive.google.com/file/d/1NHIpewuhQOvDmGkF9XmOCNQaUV9Vyvb1/view?usp=sharing',
+  resumeUrl: 'https://drive.google.com/file/d/194Tm5Enc_Kardk7ccoNfpsr4L_W-hadl/view?usp=sharing',
   instagramFollowers: '51K+',
 
   // Stats shown as floating badges on About section image
@@ -23,7 +23,12 @@ export const personal = {
   },
 
   // Typing animation titles on Hero section
-  titles: ['Software Developer', 'Website Developer', 'App Developer'],
+  titles: [
+    'Full Stack Web Development',
+    'React Native & Mobile Apps',
+    'Java & Scalable Backends',
+    'Next.js & Supabase Systems',
+  ],
 
   // Social links — update hrefs here
   social: {

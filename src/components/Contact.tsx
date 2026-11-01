@@ -88,13 +88,18 @@ const Contact: React.FC = () => {
         <motion.div variants={containerVariants} initial="hidden" animate={controls}>
 
           {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-12">
-            <p className="text-orange-500 font-semibold mb-1">Get In Touch</p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white mb-3">
-              I Want To Hear From You
+          <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
+            <span className="px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-orange-50 dark:bg-orange-950/40 border border-orange-200/60 dark:border-orange-800/40 text-orange-600 dark:text-orange-400 inline-block mb-4 shadow-2xs">
+              Get In Touch
+            </span>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-5 leading-tight">
+              Let's Build Something{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-rose-500 to-amber-500">
+                Together
+              </span>
             </h2>
-            <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
-              Whether it's about a tech project, a freelance opportunity, or an internship role — fill out the form and I'll get back to you as soon as I can.
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              Whether it's about a tech project, a freelance opportunity, or an engineering role — fill out the form and I'll get back to you promptly.
             </p>
           </motion.div>
 
